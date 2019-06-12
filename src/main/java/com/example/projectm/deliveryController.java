@@ -81,11 +81,11 @@ return_noteRepo returnrepo;
       deliveryGet[] resp = respEntity2.getBody();
 
 
-      List<deliveryGet> list = deliveryRepoGet.findAll();
+      List<delivery> list = deliveryrepo.findAll();
 
       for (deliveryGet var : resp) {
 
-         for (deliveryGet deli : list) {
+         for (delivery deli : list) {
 
             //  if(var.getDelivery_id() == deli.getDelivery_id()){
 
