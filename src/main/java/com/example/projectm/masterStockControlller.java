@@ -52,6 +52,18 @@ public class masterStockControlller{
 
     }    
     
+    @RequestMapping(value = "/masterstock", method = RequestMethod.GET)  
+    public ModelAndView masterstockview(ModelAndView model) throws ParseException {
+
+         
+        List<masterstock> list = masterrepo.findAll();
+
+        model.addObject("list", list);
+        model.setViewName("masterstock");
+
+        return model;
+    }
+
     @ResponseBody
     @RequestMapping(value = "/updateItem", method = RequestMethod.PUT)
     public  String updateItem(@Valid @ModelAttribute("mastermodel") masterstock_model msmd, 

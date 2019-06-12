@@ -19,6 +19,15 @@ public class masterstock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="binID")
     private int binID;
+
+	public int getBinID() {
+		return this.binID;
+	}
+
+	public void setBinID(int binID) {
+		this.binID = binID;
+	}
+
  
 	@Column(name="status")
     private String status;

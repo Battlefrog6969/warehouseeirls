@@ -16,6 +16,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class masterstock_model {
 
     private int binID;
+
+	public int getBinID() {
+		return this.binID;
+	}
+
+	public void setBinID(int binID) {
+		this.binID = binID;
+	}
+
  
     private String status;
     private String suppplierName;
