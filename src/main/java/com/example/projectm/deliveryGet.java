@@ -7,14 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "delivery", schema ="wnFFWYkVxW")
+ 
 public class deliveryGet {
 
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "deliveryTable_id")
+     
     private int deliveryTable_id;
 
 
@@ -26,8 +23,7 @@ public class deliveryGet {
 		this.deliveryTable_id = deliveryTable_id;
 	}
 
-    @Column(name = "delivery_id")
-    private int delivery_id;
+     private int delivery_id;
 
 	public int getDelivery_id() {
 		return this.delivery_id;
@@ -40,8 +36,7 @@ public class deliveryGet {
 	
 
 
-    @Column(name = "delivery_location")
-    private String delivery_location;
+     private String delivery_location;
 
 	public String getDelivery_location() {
 		return this.delivery_location;
@@ -52,8 +47,7 @@ public class deliveryGet {
 	}
 
 
-    @Column(name = "delivery_date")
-    private String delivery_date;
+     private String delivery_date;
 
 	public String getDelivery_date() {
 		return this.delivery_date;
@@ -64,8 +58,7 @@ public class deliveryGet {
 	}
 
 
-    @Column(name = "delivery_type")
-    private String delivery_type;
+     private String delivery_type;
 
 	public String getDelivery_type() {
 		return this.delivery_type;
@@ -75,8 +68,7 @@ public class deliveryGet {
 		this.delivery_type = delivery_type;
 	}
 
-    @Column(name = "order_id")
-     private enquiry order_id;
+      private enquiry order_id;
 
 	public enquiry getOrder_id() {
 		return this.order_id;
@@ -86,8 +78,7 @@ public class deliveryGet {
 		this.order_id = order_id;
 	}
 
-    @Column(name ="courier_id")
-    private int courier_id;
+     private int courier_id;
 
 	public int getCourier_id() {
 		return this.courier_id;
@@ -99,8 +90,7 @@ public class deliveryGet {
 
 
 
-	@Column(name = "delivery_status")
-	private String delivery_status;
+ 	private String delivery_status;
 
 	public String getDelivery_status() {
 		return this.delivery_status;
