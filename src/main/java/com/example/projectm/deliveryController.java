@@ -100,15 +100,15 @@ public class deliveryController{
               
             // }else{
 
-                delivery del = new delivery();
+                // delivery del = new delivery();
         
-                del.setDelivery_date(var.getDelivery_date());
-                del.setDelivery_location(var.getDelivery_location());
-                del.setDelivery_type(var.getDelivery_type());  
-                del.setDelivery_status(var.getDelivery_status());
-                del.setDelivery_id(var.getDelivery_id());
+                // del.setDelivery_date(var.getDelivery_date());
+                // del.setDelivery_location(var.getDelivery_location());
+                // del.setDelivery_type(var.getDelivery_type());  
+                // del.setDelivery_status(var.getDelivery_status());
+                // del.setDelivery_id(var.getDelivery_id());
                 
-                deliveryrepo.save(del);
+                // deliveryrepo.save(del);
 
             // }
             
@@ -220,7 +220,7 @@ public class deliveryController{
     public String cancelDelivery(@RequestParam("myField") int id) throws ParseException {
 
       delivery del = new delivery();
-      del = deliveryrepo.findByDid(id);
+      del = deliveryrepo.findbydeliveredid(id);
       del.setDelivery_status("Delivered"); 
       deliveryrepo.save(del);
       return "index";

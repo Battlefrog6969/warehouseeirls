@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,27 +16,27 @@ public class delivery{
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "deliveryTable_id")
+    private int deliveryTable_id;
 
 
 	public int getDeliveryTable_id() {
-		return this.id;
+		return this.deliveryTable_id;
 	}
 
 	public void setDeliveryTable_id(int deliveryTable_id) {
-		this.id = deliveryTable_id;
+		this.deliveryTable_id = deliveryTable_id;
 	}
 
     @Column(name = "delivery_id")
-    private int did;
+    private int delivery_id;
 
 	public int getDelivery_id() {
-		return this.did;
+		return this.delivery_id;
 	}
 
 	public void setDelivery_id(int delivery_id) {
-		this.did = delivery_id;
+		this.delivery_id = delivery_id;
 	}
 
 	
@@ -77,6 +76,7 @@ public class delivery{
 	public void setDelivery_type(String delivery_type) {
 		this.delivery_type = delivery_type;
 	}
+ 
 
  
 

@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface deliveryRepo extends CrudRepository<delivery, String> {
 
     List<delivery> findAll();
-    delivery findByDid(int id);
+    // delivery findByDeliveryId(int id);
 
 
 
@@ -17,4 +17,6 @@ public interface deliveryRepo extends CrudRepository<delivery, String> {
     @Query("Select d from delivery d where delivery_status='delivered' ")
     List<delivery> deliveredItems();
 
-}
+    @Query("Select d from delivery d where delivery_id=:#{#id} ") 
+    delivery findbydeliveredid(@Param("id")int id);
+} 
