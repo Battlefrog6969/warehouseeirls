@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,27 +17,27 @@ public class delivery{
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "deliveryTable_id")
-    private int deliveryTable_id;
+    @Column(name = "id")
+    private int id;
 
 
 	public int getDeliveryTable_id() {
-		return this.deliveryTable_id;
+		return this.id;
 	}
 
 	public void setDeliveryTable_id(int deliveryTable_id) {
-		this.deliveryTable_id = deliveryTable_id;
+		this.id = deliveryTable_id;
 	}
 
     @Column(name = "delivery_id")
-    private int delivery_id;
+    private int did;
 
 	public int getDelivery_id() {
-		return this.delivery_id;
+		return this.did;
 	}
 
 	public void setDelivery_id(int delivery_id) {
-		this.delivery_id = delivery_id;
+		this.did = delivery_id;
 	}
 
 	
@@ -75,29 +78,7 @@ public class delivery{
 		this.delivery_type = delivery_type;
 	}
 
-    @Column(name = "order_id")
-     private int order_id;
-
-	public int getOrder_id() {
-		return this.order_id;
-	}
-
-	public void setOrder_id(int order_id) {
-		this.order_id = order_id;
-	}
-
-    @Column(name ="courier_id")
-    private int courier_id;
-
-	public int getCourier_id() {
-		return this.courier_id;
-	}
-
-	public void setCourier_id(int courier_id) {
-		this.courier_id = courier_id;
-	}
-
-
+ 
 
 	@Column(name = "delivery_status")
 	private String delivery_status;

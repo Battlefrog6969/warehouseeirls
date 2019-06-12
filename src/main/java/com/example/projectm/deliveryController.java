@@ -19,6 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,19 +27,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class deliveryController{
 
-@Autowired
-deliveryRepo deliveryrepo;
+  @Autowired
+  deliveryRepo deliveryrepo;
 
-@Autowired
-return_noteRepo returnrepo;
+  @Autowired
+  return_noteRepo returnrepo;
 
   @Autowired
   return_productsRepo returnProductsrepo;
 
-  
-  @Autowired
-  deliveryGetRepo deliveryRepoGet;
-
+   
 
     @ResponseBody
     @RequestMapping(value = "/showItems", method = RequestMethod.GET)
@@ -47,6 +45,15 @@ return_noteRepo returnrepo;
 
         return deliveryrepo.findAll(); 
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/showItemsDelivered", method = RequestMethod.GET)
+    public List<delivery> getDeliveries(){
+        
+
+        return deliveryrepo.deliveredItems(); 
+    }
+
 
     // @RequestMapping("/home")
     // public String index() {
@@ -73,19 +80,19 @@ return_noteRepo returnrepo;
      
       HttpEntity<String> entities = new HttpEntity<String>("parameters", headers);
 
-      ResponseEntity<deliveryGet[]> respEntity2 = restTemplates.exchange(theUrl2, HttpMethod.GET, entities,
-      deliveryGet[].class);
+      ResponseEntity<delivery[]> respEntity2 = restTemplates.exchange(theUrl2, HttpMethod.GET, entities,
+      delivery[].class);
       
       
 
-      deliveryGet[] resp = respEntity2.getBody();
+      delivery[] resp = respEntity2.getBody();
 
 
       List<delivery> list = deliveryrepo.findAll();
 
-      for (deliveryGet var : resp) {
+      for (delivery var : resp) {
 
-         for (delivery deli : list) {
+        //  for (delivery deli : list) {
 
             //  if(var.getDelivery_id() == deli.getDelivery_id()){
 
@@ -94,14 +101,10 @@ return_noteRepo returnrepo;
             // }else{
 
                 delivery del = new delivery();
-       
-                del.setCourier_id(var.getCourier_id());
+        
                 del.setDelivery_date(var.getDelivery_date());
                 del.setDelivery_location(var.getDelivery_location());
-                del.setDelivery_type(var.getDelivery_type());
-
-                enquiry newEnq = var.getOrder_id();
-                del.setOrder_id(newEnq.getOrder_id()); 
+                del.setDelivery_type(var.getDelivery_type());  
                 del.setDelivery_status(var.getDelivery_status());
                 del.setDelivery_id(var.getDelivery_id());
                 
@@ -109,7 +112,7 @@ return_noteRepo returnrepo;
 
             // }
             
-         }
+        //  }
 
 
        
@@ -197,6 +200,30 @@ return_noteRepo returnrepo;
         model.setViewName("returnnote");
 
         return model;
+    }
+
+
+    @RequestMapping(value = "/canceldelivery", method = RequestMethod.GET) //return note - to display things in jsp page
+    public ModelAndView canceldelivery(ModelAndView model) throws ParseException {
+
+   
+       List<delivery> list = deliveryrepo.findAll();
+
+        model.addObject("list", list);
+        model.setViewName("displayDeliveryNote");
+
+        return model;
+    }
+
+
+    @RequestMapping(value = "/canceldelivery", method = RequestMethod.POST)  
+    public String cancelDelivery(@RequestParam("myField") int id) throws ParseException {
+
+      delivery del = new delivery();
+      del = deliveryrepo.findByDid(id);
+      del.setDelivery_status("Delivered"); 
+      deliveryrepo.save(del);
+      return "index";
     }
 
 
