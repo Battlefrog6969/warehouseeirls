@@ -35,6 +35,11 @@ return_noteRepo returnrepo;
   @Autowired
   return_productsRepo returnProductsrepo;
 
+  
+  @Autowired
+  deliveryGetRepo deliveryRepoGet;
+
+
     @ResponseBody
     @RequestMapping(value = "/showItems", method = RequestMethod.GET)
     public List<delivery> getItems(){
@@ -68,24 +73,25 @@ return_noteRepo returnrepo;
      
       HttpEntity<String> entities = new HttpEntity<String>("parameters", headers);
 
-      ResponseEntity<delivery[]> respEntity2 = restTemplates.exchange(theUrl2, HttpMethod.GET, entities,
-      delivery[].class);
+      ResponseEntity<deliveryGet[]> respEntity2 = restTemplates.exchange(theUrl2, HttpMethod.GET, entities,
+      deliveryGet[].class);
       
       
 
-      delivery[] resp = respEntity2.getBody();
+      deliveryGet[] resp = respEntity2.getBody();
 
-      List<delivery> list = deliveryrepo.findAll();
 
-      for (delivery var : resp) {
+      List<deliveryGet> list = deliveryRepoGet.findAll();
 
-         for (delivery deli : list) {
+      for (deliveryGet var : resp) {
 
-             if(var.getDelivery_id() == deli.getDelivery_id()){
+         for (deliveryGet deli : list) {
+
+            //  if(var.getDelivery_id() == deli.getDelivery_id()){
 
 
               
-            }else{
+            // }else{
 
                 delivery del = new delivery();
        
@@ -93,13 +99,15 @@ return_noteRepo returnrepo;
                 del.setDelivery_date(var.getDelivery_date());
                 del.setDelivery_location(var.getDelivery_location());
                 del.setDelivery_type(var.getDelivery_type());
-                del.setOrder_id(var.getOrder_id());
+
+                enquiry newEnq = var.getOrder_id();
+                del.setOrder_id(newEnq.getOrder_id()); 
                 del.setDelivery_status(var.getDelivery_status());
                 del.setDelivery_id(var.getDelivery_id());
-        
+                
                 deliveryrepo.save(del);
 
-            }
+            // }
             
          }
 

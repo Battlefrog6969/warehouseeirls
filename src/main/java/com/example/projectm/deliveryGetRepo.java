@@ -1,14 +1,12 @@
+
 package com.example.projectm;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface userrepo extends CrudRepository<user, String> {
+public interface  deliveryGetRepo extends CrudRepository<deliveryGet, String> {
 
-    List<user> findAll();
-
-    
-    
+    List<deliveryGet> findAll();
 
 }
