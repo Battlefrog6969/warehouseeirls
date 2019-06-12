@@ -83,7 +83,7 @@
     <a href="/returnnote">    <button class="dropbtn">Return Note </button></a> 
     <a href="/returnform">    <button class="dropbtn">Return Form </button></a> 
     <a href="/supplierform">    <button class="dropbtn">Add product </button></a> 
-    <a href="/supplierform">    <button class="dropbtn">Master stock record </button></a> 
+    <a href="/masterstock">    <button class="dropbtn">Master stock record </button></a> 
     <a href="/bomview">    <button class="dropbtn"> Bill Of Materials </button></a> 
 
 
