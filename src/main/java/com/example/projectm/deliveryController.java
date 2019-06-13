@@ -55,17 +55,6 @@ public class deliveryController{
     }
 
 
-    // @RequestMapping("/home")
-    // public String index() {
-
-    
-
-
-
-
-    //     return "index";
-    // }
-
  public void checkDetails(){
 
 
@@ -86,6 +75,7 @@ public class deliveryController{
       
 
       delivery[] resp = respEntity2.getBody();
+      
 
 
       List<delivery> list = deliveryrepo.findAll();
@@ -140,7 +130,7 @@ public class deliveryController{
     }
 
     @RequestMapping(value = "/returnform", method = RequestMethod.GET)
-    public ModelAndView Maccount() {
+    public ModelAndView ReturnForm() {
         return new ModelAndView("returnform", "returnmodel", new return_note_model());
 
 

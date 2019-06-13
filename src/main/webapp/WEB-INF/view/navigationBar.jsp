@@ -85,6 +85,7 @@
     <a href="/supplierform">    <button class="dropbtn">Add product </button></a> 
     <a href="/masterstock">    <button class="dropbtn">Master stock record </button></a> 
     <a href="/bomview">    <button class="dropbtn"> Bill Of Materials </button></a> 
+    <a href="/displayExchange">    <button class="dropbtn"> Exchange Requests </button></a> 
 
 
      
