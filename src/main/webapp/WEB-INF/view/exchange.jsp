@@ -14,26 +14,26 @@
 
 <table border="2">
 
-    
-    <th>Return id</th>
+     
     <th>Product Name</th>
-    <th>Product Quantity</th>
-    <th>Return Type </th>
+    <th>Product Quantity</th> 
     <th>Description</th>
     <th>Return Location</th>
     <th>Return Date</th>
+        <th>orderitem id</th>
+
    
     
 
     <c:forEach var="var" items="${list}">
-      <tr>
-        <td>${var.getReturn_id()}</td> 
+      <tr> 
         <td>${var.getProduct_name()}</td>
-       <td>${var.getProduct_quantity()}</td>
-       <td>${var.getReturn_type()}</td>
+       <td>${var.getProduct_quantity()}</td> 
        <td>${var.getDescription()}</td> 
         <td>${var.getReturn_location()}</td> 
         <td>${var.getReturn_date()}</td> 
+         <td>${var.getOrder_id()}</td> 
+
      				
 
       </tr>

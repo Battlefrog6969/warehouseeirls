@@ -17,9 +17,9 @@ public interface  masterStockRepo extends CrudRepository<masterstock, String> {
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE masterstock m SET m.quantity= :#{#quantity} where m.productName=:#{#prodName}")
-    void updateQuantity(@Param("prodName") String productName,@Param("quantity") int quantity) ;
+    @Query("UPDATE masterstock m SET m.quantity= :#{#quantity}, m.quanlity=:#{#quanlity}  where m.productName=:#{#prodName}")
+    void updateQuantity(@Param("prodName") String productName,@Param("quantity") int quantity, @Param("quanlity") String quanlity) ;
 
-
+    List<masterstock> findByQuanlity(String quanlity);
 
 }

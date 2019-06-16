@@ -48,8 +48,6 @@ public class masterStockControlller{
         
         masterrepo.save(newRecord);
     
-
-
     }    
     
     @RequestMapping(value = "/masterstock", method = RequestMethod.GET)  
@@ -64,21 +62,42 @@ public class masterStockControlller{
         return model;
     }
 
-    @ResponseBody
+    @ResponseBody   
     @RequestMapping(value = "/updateItem", method = RequestMethod.PUT)
     public  String updateItem(@Valid @ModelAttribute("mastermodel") masterstock_model msmd, 
     BindingResult result, ModelMap model){
 
-        String prodname= msmd.getProductName();
+        String prodname= msmd.getProductName();   
         int quantity = msmd.getQuantity();
+         String quality = msmd.getQuanlity(); 
+        String productname = msmd.getProductName();
+        String supplierName = msmd.getSuppplierName();
 
-        masterstock m= masterrepo.findByProductName(prodname);
-        int newQuantity = quantity + m.getQuantity();
+ 
+        masterstock mr = new masterstock();
+        mr.setProductName(prodname);
+        mr.setQuantity(quantity);
+        mr.setSuppplierName(supplierName);
+        mr.setQuanlity(quality); 
+        mr.setStatus("raw");
+        masterrepo.save(mr);
+            
+         
 
-        masterrepo.updateQuantity(prodname, newQuantity);
-        return "index";
-      
+        return "index"; 
     }
+
+       
+
+    @ResponseBody
+    @RequestMapping(value = "/goodrecievednotice", method = RequestMethod.GET)
+    public List<masterstock> confirmedQualityItems(){
+        
+
+        return masterrepo.findByQuanlity("Good"); 
+    }
+
+
 
     @ModelAttribute("productList")
     public Map<String, String> getProductList() {

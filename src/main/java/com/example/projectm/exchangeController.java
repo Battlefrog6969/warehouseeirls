@@ -64,16 +64,13 @@ public class exchangeController{
 
             
 
-                exchange exc = new exchange();
-        
-                exc.setReturn_id(var.getReturn_id());
+                exchange exc = new exchange(); 
                 exc.setProduct_name(var.getProduct_name());
                 exc.setProduct_quantity(var.getProduct_quantity());  
                 exc.setDescription(var.getDescription());
                 exc.setReturn_location(var.getReturn_location());
-                exc.setReturn_type(var.getReturn_type());
                 exc.setReturn_date(var.getReturn_date());
-                
+                exc.setOrder_id(var.getOrder_id());
                 exchangerepo.save(exc);
 
             

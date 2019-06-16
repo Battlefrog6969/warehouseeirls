@@ -32,11 +32,24 @@ public class masterstock {
 	@Column(name="status")
     private String status;
 	@Column(name="suppplierName")
-    private String suppplierName;
+    private String suppplierName;   
 	@Column(name="productName")
     private String productName;
     @Column(name="quantity")
     private int quantity;
+    @Column(name="quanlity")
+    private String quanlity;
+        
+	public String getQuanlity() {
+		return this.quanlity;
+	}
+
+	public void setQuanlity(String quanlity) {
+		this.quanlity = quanlity;
+	}
+
+
+    
 
     public String getStatus() {
         return status;

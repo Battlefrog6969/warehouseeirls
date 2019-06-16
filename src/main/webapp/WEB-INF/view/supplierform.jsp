@@ -31,6 +31,10 @@
                     <td><form:label path="quantity">Quantity </form:label></td>
                     <td><form:input path="quantity"/></td>
                 </tr>
+                 <tr>
+                    <td><form:label path="quanlity">  Quality </form:label></td>
+                    <td><form:input path="quanlity"/></td>
+                </tr>
                  
                 <tr>
                     <td><input type="submit" value="Submit"/></td>

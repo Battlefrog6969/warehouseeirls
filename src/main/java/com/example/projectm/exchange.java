@@ -57,17 +57,7 @@ public class exchange{
 	}
 
 
-    @Column(name ="return_type")
-    private String return_type; 
-
-	public String getReturn_type() {
-		return this.return_type;
-	}
-
-	public void setReturn_type(String return_type) {
-		this.return_type = return_type;
-	}
-
+    
 
     @Column(name="description")
     private String description;
@@ -104,7 +94,17 @@ public class exchange{
 	public void setReturn_date(Date return_date) {
 		this.return_date = return_date;
 	}
+	
+	@Column(name = "order_id") 
+	private int order_id;
 
+	public int getOrder_id() {
+		return this.order_id;
+	}
+
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
 
 
 

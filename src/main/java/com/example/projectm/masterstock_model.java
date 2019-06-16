@@ -30,6 +30,15 @@ public class masterstock_model {
     private String suppplierName;
     private String productName;
     private int quantity;
+     private String quanlity;
+
+	public String getQuanlity() {
+		return this.quanlity;
+	}
+
+	public void setQuanlity(String quanlity) {
+		this.quanlity = quanlity;
+	}
 
     public String getStatus() {
         return status;

@@ -84,25 +84,25 @@ public class deliveryController{
 
         //  for (delivery deli : list) {
 
-            //  if(var.getDelivery_id() == deli.getDelivery_id()){
+        //      if(var.getDelivery_id() == deli.getDelivery_id()){
 
 
               
-            // }else{
+        //     }else{
 
-                // delivery del = new delivery();
+        //         delivery del = new delivery();
         
-                // del.setDelivery_date(var.getDelivery_date());
-                // del.setDelivery_location(var.getDelivery_location());
-                // del.setDelivery_type(var.getDelivery_type());  
-                // del.setDelivery_status(var.getDelivery_status());
-                // del.setDelivery_id(var.getDelivery_id());
+        //         del.setDelivery_date(var.getDelivery_date());
+        //         del.setDelivery_location(var.getDelivery_location());
+        //         del.setDelivery_type(var.getDelivery_type());  
+        //         del.setDelivery_status(var.getDelivery_status());
+        //         del.setDelivery_id(var.getDelivery_id());
                 
-                // deliveryrepo.save(del);
+        //         deliveryrepo.save(del);
 
-            // }
+        //     }
             
-        //  }
+         //}
 
 
        
@@ -179,7 +179,7 @@ public class deliveryController{
 
     
 
-    @RequestMapping(value = "/returnnote", method = RequestMethod.GET) //return note - to display things in jsp page
+    @RequestMapping(value = "/returnnote", method = RequestMethod.GET) 
     public ModelAndView returnnote(ModelAndView model) throws ParseException {
 
         
@@ -193,7 +193,7 @@ public class deliveryController{
     }
 
 
-    @RequestMapping(value = "/canceldelivery", method = RequestMethod.GET) //return note - to display things in jsp page
+    @RequestMapping(value = "/displaydelivery", method = RequestMethod.GET) 
     public ModelAndView canceldelivery(ModelAndView model) throws ParseException {
 
    
@@ -206,7 +206,7 @@ public class deliveryController{
     }
 
 
-    @RequestMapping(value = "/canceldelivery", method = RequestMethod.POST)  
+    @RequestMapping(value = "/updatedeliverystatus", method = RequestMethod.POST)  
     public String cancelDelivery(@RequestParam("myField") int id) throws ParseException {
 
       delivery del = new delivery();

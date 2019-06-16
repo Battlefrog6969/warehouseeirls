@@ -50,22 +50,6 @@ public class bomcontroller{
     }
 
 
-       
-    // @ModelAttribute("bomlist")
-    // public Map<String, String> getBoms() { 
-
-    //   Map<String, String> bomList = new HashMap<String, String>();
-     
-    //  List<bom> ilist = bomrepo.findAll();
-    
-    //  for (bom var : ilist) {
-    
-    //     bom.put(var.getProduct_name(), var.getProduct_name());
-       
-    //  }
-    //  return productList;
-    // }
-
     public void checkStatus () {
         
     String theUrl2 = "ashleyurl";
