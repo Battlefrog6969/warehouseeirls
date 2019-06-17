@@ -42,7 +42,7 @@ public class deliveryController{
     @RequestMapping(value = "/showItems", method = RequestMethod.GET)
     public List<delivery> getItems(){
         
-
+      
         return deliveryrepo.findAll(); 
     }
 
@@ -90,17 +90,17 @@ public class deliveryController{
               
         //     }else{
 
-        //         delivery del = new delivery();
-        
-        //         del.setDelivery_date(var.getDelivery_date());
-        //         del.setDelivery_location(var.getDelivery_location());
-        //         del.setDelivery_type(var.getDelivery_type());  
-        //         del.setDelivery_status(var.getDelivery_status());
-        //         del.setDelivery_id(var.getDelivery_id());
+                delivery del = new delivery();
+          
+                del.setDelivery_date(var.getDelivery_date());
+                del.setDelivery_location(var.getDelivery_location());
+                del.setDelivery_type(var.getDelivery_type());  
+                del.setDelivery_status(var.getDelivery_status());
+                del.setDelivery_id(var.getDelivery_id());
                 
-        //         deliveryrepo.save(del);
+                deliveryrepo.save(del);
 
-        //     }
+            // }
             
          //}
 
@@ -207,7 +207,7 @@ public class deliveryController{
 
 
     @RequestMapping(value = "/updatedeliverystatus", method = RequestMethod.POST)  
-    public String cancelDelivery(@RequestParam("myField") int id) throws ParseException {
+    public String cancelDelivery(@RequestParam("myField") int id) {
 
       delivery del = new delivery();
       del = deliveryrepo.findbydeliveredid(id);
