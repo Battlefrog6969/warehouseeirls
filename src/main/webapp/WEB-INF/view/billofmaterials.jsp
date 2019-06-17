@@ -6,7 +6,28 @@
 <head>
     <title>BILL OF MATERIALS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+   margin-top:100px 
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
+
+
+
 <body>
 <jsp:include page="navigationBar.jsp"/>
 
